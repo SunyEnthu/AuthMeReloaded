@@ -13,14 +13,16 @@ public enum WalkFlySpeedRestoreType {
     RESTORE {
         @Override
         public void restoreFlySpeed(Player player, LimboPlayer limbo) {
-            ConsoleLogger.debug("Restoring fly speed is {0} for player `{1}`", limbo.getFlySpeed(), player.getName());
+            ConsoleLogger.debug("Restoring fly speed {0} to player `{1}`", limbo.getFlySpeed(), player.getName());
             player.setFlySpeed(limbo.getFlySpeed());
         }
 
         @Override
         public void restoreWalkSpeed(Player player, LimboPlayer limbo) {
-            ConsoleLogger.debug("Restoring walk speed {0} for player `{1}`", limbo.getFlySpeed(), player.getName());
+            final double oldWalkSpeed = player.getWalkSpeed();
             player.setWalkSpeed(limbo.getWalkSpeed());
+            ConsoleLogger.debug("Restoring walk speed {0} to player `{1}`. Reported speed: {2} (old: {3})",
+                limbo.getWalkSpeed(), player.getName(), player.getWalkSpeed(), oldWalkSpeed);
         }
     },
 

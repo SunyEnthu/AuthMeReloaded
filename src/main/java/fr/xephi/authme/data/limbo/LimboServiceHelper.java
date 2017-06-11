@@ -41,7 +41,7 @@ class LimboServiceHelper {
         String playerGroup = permissionsManager.hasGroupSupport()
             ? permissionsManager.getPrimaryGroup(player) : "";
         ConsoleLogger.debug("Limbo: got walk & fly speed {0} and {1} for player `{2}`",
-            walkSpeed, flyEnabled, player.getName());
+            walkSpeed, flySpeed, player.getName());
 
         return new LimboPlayer(location, isOperator, playerGroup, flyEnabled, walkSpeed, flySpeed);
     }
