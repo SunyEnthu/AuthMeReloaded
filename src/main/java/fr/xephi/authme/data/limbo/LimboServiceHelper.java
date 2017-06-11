@@ -40,7 +40,8 @@ class LimboServiceHelper {
         float flySpeed = player.getFlySpeed();
         String playerGroup = permissionsManager.hasGroupSupport()
             ? permissionsManager.getPrimaryGroup(player) : "";
-        ConsoleLogger.debug("Player `{0}` has primary group `{1}`", player.getName(), playerGroup);
+        ConsoleLogger.debug("Limbo: got walk & fly speed {0} and {1} for player `{2}`",
+            walkSpeed, flyEnabled, player.getName());
 
         return new LimboPlayer(location, isOperator, playerGroup, flyEnabled, walkSpeed, flySpeed);
     }
@@ -58,6 +59,7 @@ class LimboServiceHelper {
         player.setAllowFlight(false);
 
         if (!settings.getProperty(RestrictionSettings.ALLOW_UNAUTHED_MOVEMENT)) {
+            ConsoleLogger.debug("LimboServiceHelper: Setting speeds to 0 for player `{0}`", player.getName());
             player.setFlySpeed(0.0f);
             player.setWalkSpeed(0.0f);
         }

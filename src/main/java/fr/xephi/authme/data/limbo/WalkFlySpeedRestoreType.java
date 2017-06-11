@@ -1,5 +1,6 @@
 package fr.xephi.authme.data.limbo;
 
+import fr.xephi.authme.ConsoleLogger;
 import org.bukkit.entity.Player;
 
 /**
@@ -12,11 +13,13 @@ public enum WalkFlySpeedRestoreType {
     RESTORE {
         @Override
         public void restoreFlySpeed(Player player, LimboPlayer limbo) {
+            ConsoleLogger.debug("Restoring fly speed is {0} for player `{1}`", limbo.getFlySpeed(), player.getName());
             player.setFlySpeed(limbo.getFlySpeed());
         }
 
         @Override
         public void restoreWalkSpeed(Player player, LimboPlayer limbo) {
+            ConsoleLogger.debug("Restoring walk speed {0} for player `{1}`", limbo.getFlySpeed(), player.getName());
             player.setWalkSpeed(limbo.getWalkSpeed());
         }
     },
